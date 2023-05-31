@@ -13,14 +13,14 @@ config({
 app.use(cors({
     origin:[process.env.FRONTEND_URI],
     methods:["GET","PUT","DELETE","POST"],
-    credentials:true,
+    credentials:false,
 }))
 app.use(express.json());
 app.use(cookieParser())
 app.use("/api/v1/user", usersRouter)
 app.use("/api/v1/task", taskRouter)
 app.get("/", (req, res) => {
-    res.send("cc")
+    res.send("server is working")
 })
 app.use(Errormiddelware)
 
